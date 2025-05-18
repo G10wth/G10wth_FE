@@ -1,11 +1,14 @@
-function App() {
+import { BrowserRouter } from 'react-router-dom';
+import MainRoutes from '@/routes/mainRoutes';
+import LoopLoading from '@/components/common/LoopLoading';
+import { Suspense } from 'react';
+
+export default function App() {
   return (
-    <>
-      <div>
-        <p className="text-darkGray hover:text-black cursor-pointer">테스트</p>
-      </div>
-    </>
+    <BrowserRouter>
+      <Suspense fallback={<LoopLoading />}>
+        <MainRoutes />
+      </Suspense>
+    </BrowserRouter>
   );
 }
-
-export default App;

@@ -3,20 +3,29 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  position: relative;
+  min-width: 375px;
+  max-width: 425px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a00;
-    --foreground: #ededed;
+    position: relative;
+    min-width: 375px;
+    max-width: 425px;
+    width: 100%;
+    margin: 0 auto;
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  font-size: 62.5%;
   font-family: 'Pretendard';
 }
 
