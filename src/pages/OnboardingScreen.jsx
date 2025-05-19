@@ -1,11 +1,10 @@
-import Logo from '/public/logo.svg';
 import LogoTitle from '@/assets/images/logo-title-img.png';
 
 export default function WelcomeScreen() {
   return (
     <div className="min-h-screen h-full overflow-hidden w-full bg-gradient-to-b from-[#FAC61A] via-[#F6931E] to-[#FE7615] flex flex-col justify-between items-center pt-24 pb-10">
       <div className="flex flex-col items-center gap-4">
-        <img src={Logo} alt="로고" />
+        <img src="/logo.svg" alt="로고" />
 
         <div className="w-52 flex flex-col items-center gap-4">
           <p className="text-center text-black text-base font-semibold leading-snug">
