@@ -7,7 +7,15 @@ export default {
         bg: '#f5f5f7',
         black: '#222222',
 
-        // 회색조
+        // 회색 계열 (이미지 기준)
+        gray100: '#DBDBDB',
+        gray200: '#999999',
+        gray300: '#767676',
+
+        // 주황 계열 (포인트 컬러)
+        orangePrimary: '#F6931E',
+        orangeStrong: '#FE7715',
+
         normalGray: '#d9d9d9',
         'normalGray-hover': '#c3c3c3',
         'normalGray-active': '#aeaeae',
@@ -17,8 +25,6 @@ export default {
         darkGray: '#a3a3a3',
         'darkGray-hover': '#828282',
         'darkGray-active': '#626262',
-
-        // 포인트 색상
       },
       boxShadow: {
         card: '2px 4px 12px 0px rgba(0, 0, 0, 0.08)',
