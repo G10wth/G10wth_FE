@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   const isOnboardingRoute = location.pathname.startsWith('/onboarding');
 
   return (
-    <div className="min-h-screen w-full flex-col bg-white pb-24">
+    <div className="min-h-screen w-full flex-col bg-white pb-24 pt-[60px]">
       <div className="flex-1">{children || <Outlet />}</div>
       {!isOnboardingRoute && (
         <>

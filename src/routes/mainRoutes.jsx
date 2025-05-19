@@ -2,6 +2,7 @@ import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 const Main = lazy(() => import('@/pages/MainPage'));
+const StoreDetail = lazy(() => import('@/pages/StoreDetailPage'));
 const MyPage = lazy(() => import('@/pages/MyPage'));
 const CommunityPage = lazy(() => import('@/pages/CommunityPage'));
 const FavoritePage = lazy(() => import('@/pages/FavoritePage'));
@@ -17,7 +18,8 @@ export default function MainRoutes() {
       <Routes>
         <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
           <Route index element={<Main />} />
-          <Route path="mypage" element={<MyPage />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/store-list/:id" element={<StoreDetail />} />
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
           <Route path="/onboarding" element={<OnboardingScreen />} />
