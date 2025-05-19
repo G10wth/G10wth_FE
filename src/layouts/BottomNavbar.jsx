@@ -39,7 +39,7 @@ export default function BottomNavbar() {
 
   return (
     <nav
-      className="fixed bottom-0 left-1/2 -translate-x-1/2 z-10 flex w-full max-w-md items-center justify-around bg-white h-[70px] px-2"
+      className="fixed bottom-0 left-1/2 -translate-x-1/2 z-10 flex w-full max-w-[425px] items-center justify-around bg-white h-[70px] px-2"
       style={{ boxShadow: '0px -2px 4px rgba(0, 0, 0, 0.1)' }}
     >
       {menuList.map(menu => (
