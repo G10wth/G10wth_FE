@@ -59,7 +59,7 @@ export default function MainPage() {
 
   return (
     <div className="relative w-full h-screen max-w-md mx-auto flex flex-col bg-white">
-      <div className="fixed max-w-[425px] top-20 z-10 w-full px-4">
+      <div className="fixed max-w-[425px] bg-white top-15 z-10 w-full px-4 py-5">
         <SearchBar onSubmit={text => console.log('검색:', text)} />
       </div>
 
