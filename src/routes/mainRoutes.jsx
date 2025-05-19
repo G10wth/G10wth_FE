@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 
 const Main = lazy(() => import('@/pages/MainPage'));
 const MyPage = lazy(() => import('@/pages/MyPage'));
+const CommunityPage = lazy(() => import('@/pages/CommunityPage'));
+const FavoritePage = lazy(() => import('@/pages/FavoritePage'));
 const Layout = lazy(() => import('@/layouts/Layout'));
 const ErrorPage = lazy(() => import('@/pages/ErrorPage'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
@@ -16,6 +18,8 @@ export default function MainRoutes() {
         <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
           <Route index element={<Main />} />
           <Route path="mypage" element={<MyPage />} />
+          <Route path="/community" element={<CommunityPage />} />
+          <Route path="/favorite" element={<FavoritePage />} />
           <Route path="/onboarding" element={<OnboardingScreen />} />
           <Route path="*" element={<NotFound />} />
         </Route>
