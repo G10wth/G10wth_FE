@@ -58,7 +58,7 @@ export default function MainPage() {
   if (!myLocation) return <LoopLoading />;
 
   return (
-    <div className="relative w-full h-screen max-w-md mx-auto flex flex-col bg-white">
+    <div className="relative w-full h-screen max-w-[425px] mx-auto flex flex-col bg-white">
       <div className="fixed max-w-[425px] bg-white top-15 z-10 w-full px-4 py-5">
         <SearchBar onSubmit={text => console.log('검색:', text)} />
       </div>
@@ -70,7 +70,7 @@ export default function MainPage() {
           </NaverMap>
         </MapDiv>
       ) : (
-        <div className="px-4 pt-20 flex flex-col gap-4 overflow-y-auto pb-32">
+        <div className="px-4 pt-24 flex flex-col gap-4 overflow-y-auto pb-32">
           {mockStoreList.map(store => (
             <StoreCard
               key={store.id}

@@ -21,7 +21,7 @@ export default function StoreCard({
   };
 
   return (
-    <div className="flex gap-3 p-3 bg-white rounded-2xl border border-gray-100 shadow-sm max-w-md w-full">
+    <div className="flex gap-3 p-3 bg-white rounded-2xl border border-gray-100 boxShadow-custom-black50 max-w-[425px] w-full">
       {/* 썸네일 */}
       <img src={imageUrl} alt={name} className="w-24 h-24 rounded-xl object-cover flex-shrink-0" />
 
