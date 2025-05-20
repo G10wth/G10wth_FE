@@ -16,6 +16,11 @@ export default {
         orangePrimary: '#F6931E',
         orangeStrong: '#FE7715',
 
+        // 버튼 컬러
+        peach: '#FFF0EC',
+        'peach-hover': '#FFE9E3',
+        'peach-active': '#FFE1DB',
+
         normalGray: '#d9d9d9',
         'normalGray-hover': '#c3c3c3',
         'normalGray-active': '#aeaeae',
@@ -29,6 +34,7 @@ export default {
       boxShadow: {
         card: '2px 4px 12px 0px rgba(0, 0, 0, 0.08)',
         modal: '2px 2px 16px 0px rgba(0, 0, 0, 0.25)',
+        'custom-black50': '0px 0px 2px rgba(0, 0, 0, 0.5)',
       },
       gridAutoColumns: {
         '2fr': 'minmax(0, 2fr)',

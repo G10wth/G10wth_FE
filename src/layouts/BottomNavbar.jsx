@@ -19,15 +19,15 @@ export default function BottomNavbar() {
     },
     {
       label: 'Favorites',
-      to: '/gallery',
-      icon: <FiHeart className={iconStyle(isActive('/gallery'))} />,
-      active: isActive('/gallery'),
+      to: '/favorite',
+      icon: <FiHeart className={iconStyle(isActive('/favorite'))} />,
+      active: isActive('/favorite'),
     },
     {
       label: 'Community',
-      to: '/map',
-      icon: <FiUsers className={iconStyle(isActive('/map'))} />,
-      active: isActive('/map'),
+      to: '/community',
+      icon: <FiUsers className={iconStyle(isActive('/community'))} />,
+      active: isActive('/community'),
     },
     {
       label: 'My page',
