@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { isValidEmail, isValidPassword } from '@/utils/validation';
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
 import axios from '@/apis/axios-instance';
@@ -8,9 +9,29 @@ const DirectLoginForm = ({ autoLogin, setAutoLogin }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
   const [error, setError] = useState('');
 
   const handleLogin = async () => {
+    // 초기화
+    setEmailError('');
+    setPasswordError('');
+
+    let valid = true;
+
+    if (!isValidEmail(email)) {
+      setEmailError('올바른 이메일 형식을 입력해주세요.');
+      valid = false;
+    }
+
+    if (!isValidPassword(password)) {
+      setPasswordError('영문, 숫자, 특수기호를 모두 포함하여 입력해주세요. (8글자 이상)');
+      valid = false;
+    }
+
+    if (!valid) return;
+
     try {
       const res = await axios.post('/api/auth/login', { email, password });
       const token = res.data.token;
@@ -37,12 +58,14 @@ const DirectLoginForm = ({ autoLogin, setAutoLogin }) => {
           placeholder="이메일"
           value={email}
           onChange={e => setEmail(e.target.value)}
+          error={emailError}
         />
         <Input
           type="password"
           placeholder="비밀번호"
           value={password}
           onChange={e => setPassword(e.target.value)}
+          error={passwordError}
         />
         {error && <p className="text-orangeStrong text-sm mb-2 pl-1">{error}</p>}
         <label className="w-full pl-1 my-2 flex items-center justify-start gap-2 text-black">
