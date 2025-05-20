@@ -19,15 +19,15 @@ export default function BottomNavbar() {
     },
     {
       label: 'Favorites',
-      to: '/gallery',
-      icon: <FiHeart className={iconStyle(isActive('/gallery'))} />,
-      active: isActive('/gallery'),
+      to: '/favorite',
+      icon: <FiHeart className={iconStyle(isActive('/favorite'))} />,
+      active: isActive('/favorite'),
     },
     {
       label: 'Community',
-      to: '/map',
-      icon: <FiUsers className={iconStyle(isActive('/map'))} />,
-      active: isActive('/map'),
+      to: '/community',
+      icon: <FiUsers className={iconStyle(isActive('/community'))} />,
+      active: isActive('/community'),
     },
     {
       label: 'My page',
@@ -39,7 +39,7 @@ export default function BottomNavbar() {
 
   return (
     <nav
-      className="fixed bottom-0 left-1/2 -translate-x-1/2 z-10 flex w-full max-w-md items-center justify-around bg-white h-[70px] px-2"
+      className="fixed bottom-0 left-1/2 -translate-x-1/2 z-10 flex w-full max-w-[425px] items-center justify-around bg-white h-[70px] px-2"
       style={{ boxShadow: '0px -2px 4px rgba(0, 0, 0, 0.1)' }}
     >
       {menuList.map(menu => (
