@@ -3,6 +3,8 @@ import { Container as MapDiv, NaverMap, Marker } from 'react-naver-maps';
 
 import { PiWheelchair, PiToilet, PiEye } from 'react-icons/pi';
 
+import { useNavigate } from 'react-router-dom';
+
 import SearchBar from '@/components/common/SearchBar';
 import StoreCard from '@/components/main/StoreCard';
 import BottomSheetFilter from '@/components/main/BottomSheetFilter';
@@ -36,6 +38,7 @@ const mockStoreList = [
 export default function MainPage() {
   const [view, setView] = useState('map');
   const [myLocation, setMyLocation] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -73,6 +76,7 @@ export default function MainPage() {
         <div className="px-4 pt-24 flex flex-col gap-4 overflow-y-auto pb-32">
           {mockStoreList.map(store => (
             <StoreCard
+              onClick={() => navigate(`/store-list/${store.id}`)}
               key={store.id}
               imageUrl={store.imageUrl}
               name={store.name}

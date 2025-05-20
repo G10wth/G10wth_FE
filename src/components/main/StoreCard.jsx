@@ -11,6 +11,7 @@ export default function StoreCard({
   rating = 0,
   isLiked = false,
   onToggleLike,
+  onClick,
 }) {
   const [liked, setLiked] = useState(isLiked);
 
@@ -21,13 +22,13 @@ export default function StoreCard({
   };
 
   return (
-    <div className="flex gap-3 p-3 bg-white rounded-2xl border border-gray-100 boxShadow-custom-black50 max-w-[425px] w-full">
-      {/* 썸네일 */}
+    <div
+      onClick={onClick}
+      className="cursor-pointer flex gap-3 p-3 bg-white rounded-2xl border border-gray-100 boxShadow-custom-black50 max-w-[425px] w-full"
+    >
       <img src={imageUrl} alt={name} className="w-24 h-24 rounded-xl object-cover flex-shrink-0" />
 
-      {/* 본문 */}
       <div className="flex flex-col flex-1 justify-between">
-        {/* 상단: 타이틀 + 하트 */}
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-base font-semibold text-black">{name}</h3>
@@ -48,14 +49,12 @@ export default function StoreCard({
           </button>
         </div>
 
-        {/* 중간: 아이콘들 */}
         <div className="flex gap-2 mt-1">
           {icons.map((Icon, index) => (
             <Icon key={index} className="w-4 h-4 text-black" />
           ))}
         </div>
 
-        {/* 하단: 별점 */}
         <div className="flex mt-1">
           {[1, 2, 3, 4, 5].map(i =>
             i <= rating ? (
