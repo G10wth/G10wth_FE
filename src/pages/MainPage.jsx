@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Container as MapDiv, NaverMap, Marker } from 'react-naver-maps';
 
 import { PiWheelchair, PiToilet, PiEye } from 'react-icons/pi';
@@ -39,6 +39,7 @@ export default function MainPage() {
   const [view, setView] = useState('map');
   const [myLocation, setMyLocation] = useState(null);
   const navigate = useNavigate();
+  const listRef = useRef(null);
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -58,6 +59,12 @@ export default function MainPage() {
     );
   }, []);
 
+  useEffect(() => {
+    if (view === 'list') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [view]);
+
   if (!myLocation) return <LoopLoading />;
 
   return (
@@ -73,7 +80,7 @@ export default function MainPage() {
           </NaverMap>
         </MapDiv>
       ) : (
-        <div className="px-4 pt-24 flex flex-col gap-4 overflow-y-auto pb-32">
+        <div ref={listRef} className="px-4 pt-24 flex flex-col gap-4 overflow-y-auto pb-32">
           {mockStoreList.map(store => (
             <StoreCard
               onClick={() => navigate(`/store-list/${store.id}`)}
