@@ -81,7 +81,7 @@ export default function ReviewFormPage() {
             )}
           </button>
         </div>
-        <hr className="border-zinc-400" />
+        <hr className="border-zinc-400 mb-6" />
         <textarea
           value={text}
           onChange={e => setText(e.target.value)}
