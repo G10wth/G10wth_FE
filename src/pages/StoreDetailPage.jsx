@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router-dom';
+
 import { PiWheelchair, PiToilet, PiEye } from 'react-icons/pi';
-import { FiClock, FiPhone, FiPlus } from 'react-icons/fi';
+import { FiClock, FiPhone } from 'react-icons/fi';
 import CreateReviewIcon from '@/assets/icons/create-review-icon.svg';
 
 import StoreImg from '@/assets/images/sample/storeImg.png';
@@ -8,14 +10,30 @@ const mockStore = {
   name: '솔담커피',
   category: '카페',
   isOpen: true,
-  distance: '0.5 miles',
+  distance: '0.5km',
   rating: 5,
+  imageUrl: StoreImg,
   icons: [
     { label: '휠체어 출입 가능', icon: PiWheelchair },
     { label: '장애인 화장실', icon: PiToilet },
     { label: '점자 메뉴', icon: PiEye },
   ],
-  imageUrl: StoreImg,
+  description: `
+    솔담 커피는 조용한 주택가 골목에 위치한 한옥 감성 카페로, 소나무의 고요함과 담백한
+    공간미를 담아냈습니다. 직접 내린 드립커피와 전통 다과가 어우러지며, 나무창 너머로 햇살이
+    스며드는 아늑한 분위기 속에서 휴식을 즐길 수 있습니다. 혼자 머물기에도, 대화를 나누기에도
+    좋은 공간입니다.
+  `,
+  businessHours: {
+    weekdays: '월~금 : 9:00 AM - 8:00 PM',
+    saturday: '토 : 10:00 AM - 6:00 PM',
+    sunday: '일 : 12:00 PM - 5:00 PM',
+  },
+  contact: {
+    phone: '(555) 123-4567',
+    email: 'info@grandlibrary.org',
+    website: 'www.grandlibrary.org',
+  },
   reviews: [
     {
       id: 1,
@@ -40,6 +58,7 @@ const mockStore = {
 
 export default function StoreDetail() {
   const store = mockStore;
+  const navigate = useNavigate();
 
   return (
     <div className="w-full max-w-md mx-auto bg-white text-black min-h-screen pb-10">
@@ -69,22 +88,16 @@ export default function StoreDetail() {
           ))}
         </div>
 
-        <p className="text-sm text-neutral-600 mt-4 leading-relaxed">
-          솔담 커피는 조용한 주택가 골목에 위치한 한옥 감성 카페로, 소나무의 고요함과 담백한
-          공간미를 담아냈습니다. 직접 내린 드립커피와 전통 다과가 어우러지며, 나무창 너머로 햇살이
-          스며드는 아늑한 분위기 속에서 휴식을 즐길 수 있습니다. 혼자 머물기에도, 대화를 나누기에도
-          좋은 공간입니다.
-        </p>
+        <p className="text-sm text-neutral-600 mt-4 leading-relaxed">{store.description}</p>
 
         <div className="mt-6">
           <h4 className="font-semibold text-sm flex items-center gap-2">
             <FiClock /> 영업시간
           </h4>
-          <p className="text-sm text-neutral-600 mt-1">
-            월~금 : 9:00 AM - 8:00 PM
-            <br />
-            토 : 10:00 AM - 6:00 PM
-            <br />일 : 12:00 PM - 5:00 PM
+          <p className="text-sm text-neutral-600 space-y-1 mt-2">
+            <p>{store.businessHours.weekdays}</p>
+            <p>{store.businessHours.saturday}</p>
+            <p>{store.businessHours.sunday}</p>
           </p>
         </div>
 
@@ -92,13 +105,11 @@ export default function StoreDetail() {
           <h4 className="font-semibold text-sm flex items-center gap-2">
             <FiPhone /> 연락처
           </h4>
-          <p className="text-sm text-neutral-600 mt-1">
-            Phone: (555) 123-4567
-            <br />
-            Email: info@grandlibrary.org
-            <br />
-            Website: www.grandlibrary.org
-          </p>
+          <div className="text-sm space-y-1 text-neutral-600 mt-2">
+            <p>Phone: {store.contact.phone}</p>
+            <p>Email: {store.contact.email}</p>
+            <p>Website: {store.contact.website}</p>
+          </div>
         </div>
 
         <div className="mt-6">
@@ -121,7 +132,10 @@ export default function StoreDetail() {
         </div>
 
         <div className="mt-6 w-full flex justify-center">
-          <button className="relative flex items-center bg-white rounded-full w-full px-6 py-2 shadow-[0px_0px_2px_rgba(0,0,0,0.5)]">
+          <button
+            onClick={() => navigate('/create-review')}
+            className="relative flex items-center bg-white rounded-full w-full px-6 py-2 shadow-[0px_0px_2px_rgba(0,0,0,0.5)]"
+          >
             <img className="absolute left-6 size-[14px]" src={CreateReviewIcon} alt="리뷰 쓰기" />
             <span className="mx-auto text-xs text-black font-medium">새로운 리뷰 작성</span>
           </button>

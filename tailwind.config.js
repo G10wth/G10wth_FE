@@ -16,6 +16,11 @@ export default {
         orangePrimary: '#F6931E',
         orangeStrong: '#FE7715',
 
+        // 버튼 컬러
+        peach: '#FFF0EC',
+        'peach-hover': '#FFE9E3',
+        'peach-active': '#FFE1DB',
+
         normalGray: '#d9d9d9',
         'normalGray-hover': '#c3c3c3',
         'normalGray-active': '#aeaeae',

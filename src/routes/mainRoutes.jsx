@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 const Main = lazy(() => import('@/pages/MainPage'));
 const StoreDetail = lazy(() => import('@/pages/StoreDetailPage'));
+const ReviewForm = lazy(() => import('@/pages/ReviewFormPage'));
 const MyPage = lazy(() => import('@/pages/MyPage'));
 const CommunityPage = lazy(() => import('@/pages/CommunityPage'));
 const FavoritePage = lazy(() => import('@/pages/FavoritePage'));
@@ -20,6 +21,7 @@ export default function MainRoutes() {
           <Route index element={<Main />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/store-list/:id" element={<StoreDetail />} />
+          <Route path="/create-review" element={<ReviewForm />} />
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
           <Route path="/onboarding" element={<OnboardingScreen />} />
