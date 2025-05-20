@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { PiWheelchair, PiToilet, PiEye } from 'react-icons/pi';
+import { AiFillStar, AiOutlineStar, AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { FiClock, FiPhone } from 'react-icons/fi';
 import CreateReviewIcon from '@/assets/icons/create-review-icon.svg';
+import commentIcon from '@/assets/icons/comment-icon.svg';
 
 import StoreImg from '@/assets/images/sample/storeImg.png';
 
@@ -40,18 +43,21 @@ const mockStore = {
       title: '힐링되는 한옥 카페',
       date: '2025.04.11',
       text: '솔담 커피는 처음 가봤는데 마치 시간이 멈춘 듯한 분위기였어요...',
+      imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5',
     },
     {
       id: 2,
       title: '함께 가기 좋은 곳',
       date: '2025.05.16',
       text: '주말 늦은 오후에 방문했는데 북적이지 않고 조용해서...',
+      imageUrl: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5',
     },
     {
       id: 3,
       title: '혼카페하기 좋은 곳',
       date: '2025.05.17',
       text: '매일 출근 전 아메리카노 한 잔 마시러 들르는데...',
+      imageUrl: 'https://images.unsplash.com/photo-1552566626-52f8b828add9',
     },
   ],
 };
@@ -59,27 +65,43 @@ const mockStore = {
 export default function StoreDetail() {
   const store = mockStore;
   const navigate = useNavigate();
+  const [liked, setLiked] = useState(false);
 
   return (
     <div className="w-full max-w-md mx-auto bg-white text-black min-h-screen pb-10">
       <img src={store.imageUrl} alt={store.name} className="w-full h-64 object-cover" />
 
       <div className="px-6 pt-4">
-        <h3 className="text-lg font-semibold">{store.name}</h3>
-        <p className="text-sm text-neutral-500">
-          {store.category} ·{' '}
-          <span className={store.isOpen ? 'text-emerald-500' : 'text-red-400'}>
-            {store.isOpen ? '영업중' : '영업종료'}
-          </span>{' '}
-          · {store.distance}
-        </p>
-
-        <div className="flex items-center gap-1 mt-2">
-          {[...Array(store.rating)].map((_, i) => (
-            <div key={i} className="w-3 h-3 bg-black rounded-full" />
-          ))}
+        <div className="flex justify-between items-center">
+          <div className="flex items-center gap-2">
+            <h3 className="text-lg font-semibold text-black whitespace-nowrap">{store.name}</h3>
+            <div className="flex items-center gap-1 text-sm text-neutral-500 whitespace-nowrap">
+              <span>{store.category}</span>
+              <span className="text-gray-300">·</span>
+              <span className={store.isOpen ? 'text-[#32D08C]' : 'text-[#FE7615]'}>
+                {store.isOpen ? '영업중' : '영업종료'}
+              </span>
+              <span className="text-gray-300">·</span>
+              <span>{store.distance}</span>
+            </div>
+          </div>
+          <button className="p-1" onClick={() => setLiked(prev => !prev)}>
+            {liked ? (
+              <AiFillHeart className="w-5 h-5 text-red-500" />
+            ) : (
+              <AiOutlineHeart className="w-5 h-5 text-gray-400" />
+            )}
+          </button>
         </div>
-
+        <div className="flex items-center gap-1 mt-2">
+          {[1, 2, 3, 4, 5].map(i =>
+            i <= store.rating ? (
+              <AiFillStar key={i} className="w-4 h-4 text-black" />
+            ) : (
+              <AiOutlineStar key={i} className="w-4 h-4 text-black" />
+            )
+          )}
+        </div>
         <div className="flex flex-col gap-1 text-sm text-black mt-4">
           {store.icons.map((item, i) => (
             <div key={i} className="flex items-center gap-2">
@@ -113,14 +135,21 @@ export default function StoreDetail() {
         </div>
 
         <div className="mt-6">
-          <h4 className="font-semibold text-sm mb-3">리뷰</h4>
+          <div className="flex items-center gap-1.5 mb-2">
+            <img src={commentIcon} alt="댓글" className="w-4 h-4 self-center" />
+            <h4 className="font-semibold text-sm mb-0.5">리뷰</h4>
+          </div>
           <div className="flex flex-col gap-4">
             {store.reviews.map(review => (
               <div
                 key={review.id}
                 className="bg-white rounded-2xl shadow-[0px_0px_2px_rgba(0,0,0,0.5)] p-4 flex gap-3"
               >
-                <div className="w-24 h-24 bg-neutral-100 rounded-xl" />
+                <img
+                  src={review.imageUrl}
+                  alt={review.title}
+                  className="w-24 h-24 object-cover rounded-xl"
+                />
                 <div className="flex-1 text-[10px] text-neutral-700">
                   <h5 className="text-[11px] font-semibold text-black mb-1">{review.title}</h5>
                   <p className="leading-[1.2] mb-1">{review.text}</p>
