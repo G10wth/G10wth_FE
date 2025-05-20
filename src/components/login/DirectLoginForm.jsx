@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '@/components/common/Button.jsx';
-import Input from '@/components/common/Input.jsx';
-import axios from '@/apis/axios-instance.js';
+import Button from '@/components/common/Button';
+import Input from '@/components/common/Input';
+import axios from '@/apis/axios-instance';
 
 const DirectLoginForm = ({ autoLogin, setAutoLogin }) => {
   const navigate = useNavigate();

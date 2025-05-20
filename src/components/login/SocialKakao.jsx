@@ -1,6 +1,6 @@
-import { REDIRECT_URI } from '@/constants/kakao.js';
+import { REDIRECT_URI } from '@/constants/kakao';
 import kakaoLoginBtn from '@/assets/icons/kakao_symbol.svg';
-import useKakaoSdk from '@/hooks/useKakaoSdk.js';
+import useKakaoSdk from '@/hooks/useKakaoSdk';
 
 const SocialKakaoLogin = ({ autoLogin = false, text = false }) => {
   useKakaoSdk();

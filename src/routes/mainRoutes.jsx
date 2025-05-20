@@ -10,7 +10,7 @@ const Layout = lazy(() => import('@/layouts/Layout'));
 const ErrorPage = lazy(() => import('@/pages/ErrorPage'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 const OnboardingScreen = lazy(() => import('@/pages/OnboardingScreen'));
-const KakaoRedirection = lazy(() => import('@/pages/KakaoRedirection.jsx'));
+const KakaoRedirection = lazy(() => import('@/pages/KakaoRedirection'));
 const LoginPage = lazy(() => import('@/pages/LoginPage'));
 const LoopLoading = lazy(() => import('@/components/common/LoopLoading'));
 

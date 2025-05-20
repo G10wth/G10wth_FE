@@ -1,6 +1,6 @@
 import LogoTitle from '@/assets/images/logo-title-img.png';
 import { useNavigate } from 'react-router-dom';
-import SocialKakaoLogin from '@/components/login/SocialKakao.jsx';
+import SocialKakaoLogin from '@/components/login/SocialKakao';
 
 export default function WelcomeScreen() {
   const navigate = useNavigate();

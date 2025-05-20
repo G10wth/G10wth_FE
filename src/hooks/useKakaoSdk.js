@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { REST_API_KEY } from '@/constants/kakao.js';
+import { REST_API_KEY } from '@/constants/kakao';
 
 const useKakaoSdk = () => {
   useEffect(() => {

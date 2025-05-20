@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import MainRoutes from '@/routes/mainRoutes';
 import LoopLoading from '@/components/common/LoopLoading';
 import { Suspense } from 'react';
-import { REST_API_KEY } from '@/constants/kakao.js';
+import { REST_API_KEY } from '@/constants/kakao';
 
 export default function App() {
   useEffect(() => {
