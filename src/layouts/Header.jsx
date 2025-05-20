@@ -37,6 +37,7 @@ export default function Header() {
             src={LogoTitle}
             alt="로고 타이틀"
             className="w-[130px] pt-1 select-none cursor-pointer"
+            onClick={() => navigate('/')}
           />
           <div className="flex items-center gap-4">
             <FiBell className="w-6 h-6 text-black cursor-pointer" />
