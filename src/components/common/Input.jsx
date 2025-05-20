@@ -7,14 +7,17 @@ const Input = ({ label = '', type, placeholder, value, onChange, error }) => {
 
   return (
     <div>
-      <div className="flex w-full my-2 py-3 px-4 border border-normalGray rounded-[8px] text-sm placeholder-gray-400">
+      <div
+        className={`flex w-full my-2 py-3 px-4 border rounded-[8px] text-sm placeholder-gray-400
+        ${error ? 'border-orangeStrong' : 'border-normalGray'}`}
+      >
         {label && <label className="block mb-2 text-sm font-medium text-gray-700">{label}</label>}
         <input
           type={isPassword && isShowPassword ? 'text' : type}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className="w-full text-black"
+          className="w-full text-black focus:outline-none"
         />
         {isPassword && (
           <button
