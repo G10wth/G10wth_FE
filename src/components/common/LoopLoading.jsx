@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-export default function LoopLoading(size = 40) {
+export default function LoopLoading({ size = 40 }) {
   const bars = useMemo(() => Array.from({ length: 12 }, () => crypto.randomUUID()), []);
 
   return (
