@@ -200,7 +200,7 @@ const SignUpForm = () => {
     <div className="flex flex-col w-full gap-8">
       {step !== 4 && (
         <>
-          <TopBar />
+          <TopBar title="회원가입" />
           <AuthHeader step={step} />
         </>
       )}
