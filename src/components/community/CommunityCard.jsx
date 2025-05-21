@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-import { FaRegCommentDots } from 'react-icons/fa';
+import { FaRegComment } from 'react-icons/fa';
 import CommentModal from '@/components/community/CommentModal';
 
 const CommunityCard = ({ username, userHandle, profileImage, content, image, isMine }) => {
@@ -42,12 +42,12 @@ const CommunityCard = ({ username, userHandle, profileImage, content, image, isM
       <div className="mt-2 flex space-x-4">
         <button onClick={() => setLiked(prev => !prev)}>
           {liked ? (
-            <AiFillHeart className="text-red-500 w-4 h-4" />
+            <AiFillHeart className="text-red-500 w-5 h-5" />
           ) : (
-            <AiOutlineHeart className="text-black w-4 h-4" />
+            <AiOutlineHeart className="text-black w-5 h-5" />
           )}
         </button>
-        <FaRegCommentDots className="w-4 h-4 text-neutral-800" />
+        <FaRegComment className="w-[16.5px] h-[16.5px] mt-[1.5px] text-neutral-800" />
       </div>
     </div>
   );
