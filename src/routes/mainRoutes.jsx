@@ -13,6 +13,7 @@ const NotFound = lazy(() => import('@/pages/NotFound'));
 const OnboardingScreen = lazy(() => import('@/pages/OnboardingScreen'));
 const KakaoRedirection = lazy(() => import('@/pages/KakaoRedirection'));
 const LoginPage = lazy(() => import('@/pages/LoginPage'));
+const SignUpPage = lazy(() => import('@/pages/SignUpPage'));
 const LoopLoading = lazy(() => import('@/components/common/LoopLoading'));
 
 export default function MainRoutes() {
@@ -21,6 +22,7 @@ export default function MainRoutes() {
       <Routes>
         <Route path="/oauth" element={<KakaoRedirection />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignUpPage />} />
 
         <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
           <Route index element={<Main />} />

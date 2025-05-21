@@ -7,11 +7,11 @@ const Input = ({ label = '', type, placeholder, value, onChange, error }) => {
 
   return (
     <div>
+      {label && <label className="text-sm font-medium text-black">{label}</label>}
       <div
         className={`flex w-full my-2 py-3 px-4 border rounded-[8px] text-sm placeholder-gray-400
         ${error ? 'border-orangeStrong' : 'border-normalGray'}`}
       >
-        {label && <label className="block mb-2 text-sm font-medium text-gray-700">{label}</label>}
         <input
           type={isPassword && isShowPassword ? 'text' : type}
           placeholder={placeholder}
