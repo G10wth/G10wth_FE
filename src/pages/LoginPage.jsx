@@ -2,7 +2,7 @@ import { useState } from 'react';
 import SocialKakaoLogin from '@/components/login/SocialKakao';
 import DirectLoginForm from '@/components/login/DirectLoginForm';
 import useAutoRedirect from '@/hooks/useAutoRedirect';
-import TopBar from '@/components/common/TopBar.jsx';
+import TopBar from '@/components/common/TopBar';
 
 const LoginPage = () => {
   const [autoLogin, setAutoLogin] = useState(false);
