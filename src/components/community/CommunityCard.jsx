@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { FaRegCommentDots } from 'react-icons/fa';
-import CommentModal from './CommentModal';
+import CommentModal from '@/components/community/CommentModal';
 
-const CommunityCard = ({ username, userHandle, profileImage, content, image }) => {
+const CommunityCard = ({ username, userHandle, profileImage, content, image, isMine }) => {
   const [liked, setLiked] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -30,7 +30,7 @@ const CommunityCard = ({ username, userHandle, profileImage, content, image }) =
 
           {showModal && (
             <div className="absolute top-0 right-[120px] mr-2">
-              <CommentModal onClose={() => setShowModal(false)} />
+              <CommentModal isMine={isMine} onClose={() => setShowModal(false)} />
             </div>
           )}
         </div>

@@ -29,7 +29,7 @@ export default function CommunityPage() {
   ];
 
   return (
-    <div className="w-full max-w-md mx-auto py-6 px-4 space-y-8">
+    <div className="w-full mx-auto py-6 px-4 space-y-8">
       {mockData.map((data, idx) => (
         <CommunityCard key={idx} {...data} />
       ))}
