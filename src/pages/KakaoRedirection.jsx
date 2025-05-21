@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LoopLoading from '@/components/common/LoopLoading';
 import axios from 'axios';
 
 const KakaoRedirection = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   let called = false;
 
@@ -15,6 +17,7 @@ const KakaoRedirection = () => {
       if (!code) return;
 
       try {
+        setIsLoading(true);
         const res = await axios.post('/api/auth/kakao', { code });
         const { token } = res.data;
         localStorage.setItem('token', token);
@@ -40,13 +43,15 @@ const KakaoRedirection = () => {
           alert('예상치 못한 에러가 발생했습니다.');
         }
         navigate('/login'); // 에러 발생 시 로그인 페이지로 리디렉션
+      } finally {
+        setIsLoading(false);
       }
     };
 
     handleKakaoRedirect().catch(console.error);
   }, [navigate]);
 
-  return <></>;
+  return <>{isLoading && <LoopLoading />}</>;
 };
 
 export default KakaoRedirection;
