@@ -29,7 +29,7 @@ const CommunityCard = ({ username, userHandle, profileImage, content, image }) =
           </button>
 
           {showModal && (
-            <div className="absolute top-6 right-full mr-2">
+            <div className="absolute top-0 right-[120px] mr-2">
               <CommentModal onClose={() => setShowModal(false)} />
             </div>
           )}
