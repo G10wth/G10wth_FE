@@ -10,7 +10,7 @@ const LoginPage = () => {
 
   return (
     <div>
-      <TopBar />
+      <TopBar title="로그인" />
       <div className="fixed max-w-[425px] w-full top-[60px] flex flex-col items-center justify-center gap-8 p-4">
         <div className="w-full space-y-1">
           <p className="text-black text-2xl font-bold">EasyPlace와 함께</p>
