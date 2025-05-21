@@ -6,7 +6,7 @@ const TopBar = ({ title }) => {
   const navigate = useNavigate();
 
   return (
-    <header className="fixed max-w-[425px] w-full top-0 z-10 h-[60px] flex items-center text-end justify-between px-4 bg-white">
+    <header className="fixed left-1/2 transform -translate-x-1/2 max-w-[425px] w-full top-0 z-10 h-[60px] flex items-center text-end justify-between px-4 bg-white">
       <IoArrowBack
         onClick={() => navigate(-1)}
         aria-label="뒤로가기"
