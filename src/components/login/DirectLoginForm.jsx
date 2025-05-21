@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { isValidEmail, isValidPassword } from '@/utils/validation';
 import Button from '@/components/common/Button';
 import Input from '@/components/common/Input';
+import LoopLoading from '@/components/common/LoopLoading';
 import axios from '@/apis/axios-instance';
 
 const DirectLoginForm = ({ autoLogin, setAutoLogin }) => {
@@ -12,6 +13,7 @@ const DirectLoginForm = ({ autoLogin, setAutoLogin }) => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = async () => {
     // 초기화
@@ -33,6 +35,7 @@ const DirectLoginForm = ({ autoLogin, setAutoLogin }) => {
     if (!valid) return;
 
     try {
+      setIsLoading(true);
       const res = await axios.post('/api/auth/login', { email, password });
       const token = res.data.token;
 
@@ -47,6 +50,8 @@ const DirectLoginForm = ({ autoLogin, setAutoLogin }) => {
     } catch (err) {
       console.error(err);
       setError('이메일 또는 비밀번호를 잘못 입력하셨습니다. 다시 확인 후 입력해 주세요.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -80,6 +85,7 @@ const DirectLoginForm = ({ autoLogin, setAutoLogin }) => {
         </label>
       </div>
       <Button text="로그인" onClick={handleLogin} />
+      {isLoading && <LoopLoading />}
     </div>
   );
 };
