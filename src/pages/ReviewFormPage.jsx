@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import StoreCard from '@/components/main/StoreCard';
 import StoreImg from '@/assets/images/sample/storeImg.png';
+// import useRequireAuth from '@/hooks/useRequireAuth.js';
 
 export default function ReviewFormPage() {
   const [rating, setRating] = useState(0);
@@ -19,6 +20,8 @@ export default function ReviewFormPage() {
     rating: 4,
     isLiked: false,
   };
+
+  // useRequireAuth();
 
   const handleImageSelect = e => {
     const file = e.target.files?.[0];
