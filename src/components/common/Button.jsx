@@ -3,7 +3,13 @@ const Button = ({ text, onClick, disabled = false }) => {
     <button
       onClick={onClick}
       className={`w-full py-4 rounded-[8px]
-        ${disabled ? 'bg-gray-200 text-gray200 font-medium' : 'bg-orangeStrong text-white'}`}
+        ${
+          text === '취소'
+            ? 'bg-white border border-gray200 text-black'
+            : disabled
+              ? 'bg-gray-200 text-gray200 font-medium'
+              : 'bg-orangeStrong text-white'
+        }`}
     >
       {text}
     </button>

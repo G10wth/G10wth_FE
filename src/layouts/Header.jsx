@@ -9,6 +9,7 @@ export default function Header() {
 
   const isStoreDetail = /^\/store-list\/\d+$/.test(pathname);
   const isCreateReview = pathname === '/create-review';
+  const isMyReview = pathname === '/my-review';
 
   return (
     <header
@@ -17,18 +18,33 @@ export default function Header() {
     >
       {isStoreDetail ? (
         <div className="w-full text-center">
+          <FiChevronLeft
+            size={20}
+            onClick={() => navigate(-1)}
+            className="absolute left-4 text-black cursor-pointer"
+            aria-label="뒤로가기"
+          />
           <h2 className="text-base text-black font-semibold">세부정보</h2>
         </div>
       ) : isCreateReview ? (
         <div className="flex items-center justify-center w-full relative">
-          <button
+          <FiChevronLeft
+            size={20}
             onClick={() => navigate(-1)}
-            className="absolute left-4 text-black"
+            className="absolute left-4 text-black cursor-pointer"
             aria-label="뒤로가기"
-          >
-            <FiChevronLeft size={20} />
-          </button>
+          />
           <h2 className="text-base text-black font-semibold">새로운 리뷰 작성</h2>
+        </div>
+      ) : isMyReview ? (
+        <div className="flex items-center justify-center w-full relative">
+          <FiChevronLeft
+            size={20}
+            onClick={() => navigate(-1)}
+            className="absolute left-4 text-black cursor-pointer"
+            aria-label="뒤로가기"
+          />
+          <h2 className="text-base text-black font-semibold">나의 리뷰</h2>
         </div>
       ) : (
         <>

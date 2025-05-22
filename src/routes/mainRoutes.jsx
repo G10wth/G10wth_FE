@@ -5,6 +5,8 @@ const Main = lazy(() => import('@/pages/MainPage'));
 const StoreDetail = lazy(() => import('@/pages/StoreDetailPage'));
 const ReviewForm = lazy(() => import('@/pages/ReviewFormPage'));
 const MyPage = lazy(() => import('@/pages/MyPage'));
+const MyReviewPage = lazy(() => import('@/pages/MyReviewPage'));
+const EditProfilePage = lazy(() => import('@/pages/EditProfilePage'));
 const CommunityPage = lazy(() => import('@/pages/CommunityPage'));
 const FavoritePage = lazy(() => import('@/pages/FavoritePage'));
 const Layout = lazy(() => import('@/layouts/Layout'));
@@ -23,6 +25,7 @@ export default function MainRoutes() {
         <Route path="/oauth" element={<KakaoRedirection />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/edit-profile" element={<EditProfilePage />} />
 
         <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
           <Route index element={<Main />} />
@@ -32,6 +35,7 @@ export default function MainRoutes() {
           <Route path="/community" element={<CommunityPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
           <Route path="/onboarding" element={<OnboardingScreen />} />
+          <Route path="/my-review" element={<MyReviewPage />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

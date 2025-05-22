@@ -9,7 +9,7 @@ import {
 import Input from '@/components/common/Input';
 import AuthHeader from '@/components/common/AuthHeader';
 import LoopLoading from '@/components/common/LoopLoading';
-import BottomButtonBar from '@/components/signup/BottomButtonBar';
+import BottomButtonBar from '@/components/common/BottomButtonBar';
 import TopBar from '@/components/common/TopBar';
 import axios from '@/apis/axios-instance';
 
@@ -190,7 +190,7 @@ const SignUpForm = () => {
             <p className="text-center max-w-[50%] break-keep text-sm text-gray300 mt-1">
               {nickname}님, 이제 EasyPlace에서 편하고 빠르게 장소를 찾아보세요!
             </p>
-            <BottomButtonBar text="로그인" onClick={() => navigate('/login')} className="mt-6" />
+            <BottomButtonBar page="signup" text="로그인" onClick={() => navigate('/login')} />
           </div>
         );
     }
@@ -200,13 +200,14 @@ const SignUpForm = () => {
     <div className="flex flex-col w-full gap-8">
       {step !== 4 && (
         <>
-          <TopBar />
+          <TopBar title="회원가입" />
           <AuthHeader step={step} />
         </>
       )}
       {renderStep()}
       {step !== 4 && (
         <BottomButtonBar
+          page="signup"
           text={getButtonText()}
           onClick={handleNext}
           disabled={!isNextEnabled || isLoading}

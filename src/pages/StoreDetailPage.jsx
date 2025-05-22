@@ -1,13 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { PiWheelchair, PiToilet, PiEye } from 'react-icons/pi';
 import { AiFillStar, AiOutlineStar, AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { FiClock, FiPhone } from 'react-icons/fi';
-import CreateReviewIcon from '@/assets/icons/create-review-icon.svg';
 import commentIcon from '@/assets/icons/comment-icon.svg';
 
 import StoreImg from '@/assets/images/sample/storeImg.png';
+import CreateReviewButton from '@/components/common/CreateReviewButton';
 
 const mockStore = {
   name: '솔담커피',
@@ -64,7 +63,6 @@ const mockStore = {
 
 export default function StoreDetail() {
   const store = mockStore;
-  const navigate = useNavigate();
   const [liked, setLiked] = useState(false);
 
   return (
@@ -161,13 +159,7 @@ export default function StoreDetail() {
         </div>
 
         <div className="mt-6 w-full flex justify-center">
-          <button
-            onClick={() => navigate('/create-review')}
-            className="relative flex items-center bg-white rounded-full w-full px-6 py-2 shadow-[0px_0px_2px_rgba(0,0,0,0.5)]"
-          >
-            <img className="absolute left-6 size-[14px]" src={CreateReviewIcon} alt="리뷰 쓰기" />
-            <span className="mx-auto text-xs text-black font-medium">새로운 리뷰 작성</span>
-          </button>
+          <CreateReviewButton />
         </div>
       </div>
     </div>
