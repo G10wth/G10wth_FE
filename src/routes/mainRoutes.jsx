@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import EditProfilePage from '@/pages/EditProfilePage.jsx';
 
 const Main = lazy(() => import('@/pages/MainPage'));
 const StoreDetail = lazy(() => import('@/pages/StoreDetailPage'));
@@ -23,6 +24,7 @@ export default function MainRoutes() {
         <Route path="/oauth" element={<KakaoRedirection />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/edit-profile" element={<EditProfilePage />} />
 
         <Route path="/" element={<Layout />} errorElement={<ErrorPage />}>
           <Route index element={<Main />} />

@@ -10,9 +10,9 @@ export const isValidPassword = password => {
   return regex.test(password);
 };
 
-// 닉네임 유효성 검사: 2자 이상 8자 미만
+// 닉네임 유효성 검사: 2자 이상 8자 이하
 export const isValidNickname = nickname => {
-  return nickname.length >= 2 && nickname.length < 8;
+  return nickname.length >= 2 && nickname.length <= 8;
 };
 
 // 비밀번호 확인 검사

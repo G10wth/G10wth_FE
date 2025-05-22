@@ -27,7 +27,7 @@ export default function MyPage() {
 
         // 백엔드 연동 전 임시 mock 데이터 사용
         const mockUser = {
-          username: '사용자24566',
+          username: '사용자2456',
           email: '@zlgkylym',
           profileImage: '/logo2.svg',
         };
