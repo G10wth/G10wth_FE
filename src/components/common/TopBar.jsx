@@ -1,5 +1,6 @@
 import { IoArrowBack } from 'react-icons/io5';
 import { useLocation, useNavigate } from 'react-router-dom';
+import TextButton from '@/components/common/TextButton.jsx';
 
 const TopBar = ({ title }) => {
   const location = useLocation();
@@ -16,18 +17,11 @@ const TopBar = ({ title }) => {
         {title}
       </h2>
       {location.pathname === '/login' && (
-        <button
-          className="min-w-fit text-base text-orangeStrong"
-          onClick={() => navigate('/signup')}
-        >
-          회원가입
-        </button>
+        <TextButton text="회원가입" color="text-orangeStrong" onClick={() => navigate('/signup')} />
       )}
 
       {location.pathname === '/signup' && (
-        <button className="text-base text-orangeStrong" onClick={() => navigate('/login')}>
-          로그인
-        </button>
+        <TextButton text="로그인" color="text-orangeStrong" onClick={() => navigate('/login')} />
       )}
     </header>
   );
