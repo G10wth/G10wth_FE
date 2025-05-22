@@ -8,7 +8,7 @@ import { PiWheelchair, PiToilet, PiSpeakerHigh, PiMountains } from 'react-icons/
 import { FiEye } from 'react-icons/fi';
 
 export default function BottomSheetFilter({ selected, onChange }) {
-  const [activeFilter, setActiveFilter] = useState(null);
+  const [activeFilters, setActiveFilters] = useState([]);
 
   const filters = [
     { icon: <PiWheelchair size={18} />, label: '휠체어 출입 가능' },
@@ -17,6 +17,15 @@ export default function BottomSheetFilter({ selected, onChange }) {
     { icon: <PiSpeakerHigh size={18} />, label: '오디오 가이드' },
     { icon: <PiMountains size={18} />, label: '경사로' },
   ];
+
+  const toggleFilter = label => {
+    setActiveFilters(
+      prev =>
+        prev.includes(label)
+          ? prev.filter(item => item !== label) // 이미 선택되어 있으면 제거
+          : [...prev, label] // 없으면 추가
+    );
+  };
 
   const shadowClass = selected === 'map' ? 'shadow-md' : 'shadow-[0px_-2px_4px_rgba(0,0,0,0.1)]';
 
@@ -31,8 +40,8 @@ export default function BottomSheetFilter({ selected, onChange }) {
             key={i}
             icon={item.icon}
             label={item.label}
-            isActive={activeFilter === item.label}
-            onClick={() => setActiveFilter(item.label)}
+            isActive={activeFilters.includes(item.label)}
+            onClick={() => toggleFilter(item.label)}
           />
         ))}
       </div>
