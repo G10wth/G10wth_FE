@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import ViewToggle from './ViewToggle';
-import AccessibilityFilterButton from './AccessibilityFilterButton.jsx';
+import AccessibilityFilterButton from './AccessibilityFilterButton';
 
 import { PiWheelchair, PiToilet, PiSpeakerHigh, PiMountains } from 'react-icons/pi';
 
