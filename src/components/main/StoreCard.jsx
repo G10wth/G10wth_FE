@@ -40,7 +40,13 @@ export default function StoreCard({
             </p>
             <p className="text-xs text-gray300">{distance}</p>
           </div>
-          <button onClick={handleLikeClick} className="p-1">
+          <button
+            onClick={e => {
+              e.stopPropagation();
+              handleLikeClick();
+            }}
+            className="p-1"
+          >
             {liked ? (
               <AiFillHeart className="text-red-500 w-5 h-5" />
             ) : (
