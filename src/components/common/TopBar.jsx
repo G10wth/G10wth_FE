@@ -1,6 +1,7 @@
 import { IoArrowBack } from 'react-icons/io5';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TextButton from '@/components/common/TextButton.jsx';
+import { FiChevronLeft } from 'react-icons/fi';
 
 const TopBar = ({ title }) => {
   const location = useLocation();
@@ -8,7 +9,8 @@ const TopBar = ({ title }) => {
 
   return (
     <header className="fixed left-1/2 transform -translate-x-1/2 max-w-[425px] w-full top-0 z-10 h-[60px] flex items-center text-end justify-between px-4 bg-white">
-      <IoArrowBack
+      <FiChevronLeft
+        size={20}
         onClick={() => navigate(-1)}
         aria-label="뒤로가기"
         className="w-6 h-6 text-black cursor-pointer"
