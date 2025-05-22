@@ -1,9 +1,8 @@
 // import { useEffect, useState } from 'react';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import storeImg from '@/assets/images/sample/storeImg.png';
 import CreateReviewButton from '@/components/common/CreateReviewButton';
 import ReviewCard from '@/components/review/ReviewCard';
-import LoopLoading from '@/components/common/LoopLoading';
+// import LoopLoading from '@/components/common/LoopLoading';
 // import useRequireAuth from '@/hooks/useRequireAuth';
 // import axios from '@/apis/axios-instance';
 
