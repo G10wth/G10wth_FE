@@ -1,6 +1,5 @@
-import { IoArrowBack } from 'react-icons/io5';
 import { useLocation, useNavigate } from 'react-router-dom';
-import TextButton from '@/components/common/TextButton.jsx';
+import TextButton from '@/components/common/TextButton';
 import { FiChevronLeft } from 'react-icons/fi';
 
 const TopBar = ({ title }) => {

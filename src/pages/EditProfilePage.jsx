@@ -10,7 +10,7 @@ import ConfirmModal from '@/components/edit-profile/ConfirmModal';
 import LoopLoading from '@/components/common/LoopLoading';
 // import useRequireAuth from '@/hooks/useRequireAuth';
 import useLogout from '@/hooks/useLogout';
-import TextButton from '@/components/common/TextButton.jsx';
+import TextButton from '@/components/common/TextButton';
 // import axios from '@/apis/axios-instance';
 
 // 테스트용 데이터

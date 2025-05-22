@@ -9,7 +9,7 @@ import {
 import Input from '@/components/common/Input';
 import AuthHeader from '@/components/common/AuthHeader';
 import LoopLoading from '@/components/common/LoopLoading';
-import BottomButtonBar from '@/components/common/BottomButtonBar.jsx';
+import BottomButtonBar from '@/components/common/BottomButtonBar';
 import TopBar from '@/components/common/TopBar';
 import axios from '@/apis/axios-instance';
 
