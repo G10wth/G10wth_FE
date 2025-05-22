@@ -1,6 +1,10 @@
+// import { useEffect, useState } from 'react';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import storeImg from '@/assets/images/sample/storeImg.png';
 import CreateReviewButton from '@/components/common/CreateReviewButton';
+import LoopLoading from '@/components/common/LoopLoading';
+// import useRequireAuth from '@/hooks/useRequireAuth';
+// import axios from '@/apis/axios-instance';
 
 const mockReviews = [
   {
@@ -69,9 +73,38 @@ const mockReviews = [
 ];
 
 const MyReviewPage = () => {
+  // const [reviews, setReviews] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+
+  // useRequireAuth();
+
+  // useEffect(() => {
+  //   const fetchReviews = async () => {
+  //     try {
+  //       setIsLoading(true);
+  //       const res = await axios.get('/api/reviews/me');
+  //       const data = res.data;
+  //
+  //       const reviewsWithImage = data.map(review => ({
+  //         ...review,
+  //         imageUrl: review.imageUrl || storeImg,
+  //       }));
+  //
+  //       setReviews(reviewsWithImage);
+  //     } catch (err) {
+  //       console.error('리뷰 불러오기 실패 : ', err);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //
+  //   fetchReviews().catch(console.error);
+  // }, []);
+
   return (
     <div className="fixed max-w-[425px] w-full max-h-[calc(100vh-130px)] top-[60px] overflow-auto space-y-6 p-7">
       <div className="flex flex-col gap-5">
+        {/*{reviews.map(review => (*/}
         {mockReviews.map(review => (
           <div
             key={review.id}
@@ -102,6 +135,7 @@ const MyReviewPage = () => {
         ))}
       </div>
       <CreateReviewButton />
+      {/*{isLoading && <LoopLoading />}*/}
     </div>
   );
 };
