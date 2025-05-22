@@ -1,8 +1,8 @@
 // import { useEffect, useState } from 'react';
-import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
 import storeImg from '@/assets/images/sample/storeImg.png';
 import CreateReviewButton from '@/components/common/CreateReviewButton';
-import LoopLoading from '@/components/common/LoopLoading';
+import ReviewCard from '@/components/review/ReviewCard';
+// import LoopLoading from '@/components/common/LoopLoading';
 // import useRequireAuth from '@/hooks/useRequireAuth';
 // import axios from '@/apis/axios-instance';
 
@@ -106,32 +106,7 @@ const MyReviewPage = () => {
       <div className="flex flex-col gap-5">
         {/*{reviews.map(review => (*/}
         {mockReviews.map(review => (
-          <div
-            key={review.id}
-            className="bg-white rounded-2xl shadow-[0px_0px_3px_rgba(0,0,0,0.4)] p-4 flex gap-4"
-          >
-            <img
-              src={review.imageUrl}
-              alt={review.title}
-              className="w-24 h-24 rounded-lg object-cover"
-            />
-            <div className="flex flex-col mr-3">
-              <div className="flex flex-row justify-between mt-1 mb-2">
-                <div className="font-bold text-xs text-black">{review.title}</div>
-                <div className="flex items-center">
-                  {Array.from({ length: 5 }).map((_, i) =>
-                    i < review.rating ? (
-                      <AiFillStar key={i} size={13} className="text-black" />
-                    ) : (
-                      <AiOutlineStar key={i} size={13} className="text-black" />
-                    )
-                  )}
-                </div>
-              </div>
-              <div className="h-full text-[10px] text-gray-600 line-clamp-3">{review.content}</div>
-              <div className="text-[10px] text-gray-400">{review.date}</div>
-            </div>
-          </div>
+          <ReviewCard key={review.id} {...review} />
         ))}
       </div>
       <CreateReviewButton />
