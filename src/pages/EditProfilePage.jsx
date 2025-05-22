@@ -14,11 +14,18 @@ import TextButton from '@/components/common/TextButton';
 // import axios from '@/apis/axios-instance';
 
 // 테스트용 데이터
-const mockData = {
+// const mockData = {
+//   profileImage: '/logo2.svg',
+//   username: 'mockUser',
+//   email: 'mock@example.com',
+//   password: 'MockPass123!',
+//   authProvider: 'local',
+// };
+const mockData2 = {
   profileImage: '/logo2.svg',
   username: 'mockUser',
-  email: 'mock@example.com',
-  password: 'MockPass123!',
+  email: 'mock@naver.com',
+  authProvider: 'kakao',
 };
 
 const EditProfilePage = () => {
@@ -31,6 +38,7 @@ const EditProfilePage = () => {
   const [pwStep, setPwStep] = useState(0); // 0: 숨김, 1: 현재 비밀번호 검증, 2: 새 비밀번호 입력
   const [currentPw, setCurrentPw] = useState('');
   const [newPw, setNewPw] = useState('');
+  const [authProvider, setAuthProvider] = useState('local');
   const [isEditUsername, setIsEditUsername] = useState(false);
   const [isShowModal, setIsShowModal] = useState(false);
   const initialData = useRef({
@@ -57,19 +65,21 @@ const EditProfilePage = () => {
         // setProfileImage(profileImage);
         // setPreview(profileImage);
         // setUsername(username);
+        // setAuthProvider(authProvider);
         // initialData.current = {
         //   profileImage,
         //   username,
         //   password,
         // }
-        setProfileImage(mockData.profileImage);
-        setPreview(mockData.profileImage);
-        setUsername(mockData.username);
-        setEmail(mockData.email);
+        setProfileImage(mockData2.profileImage);
+        setPreview(mockData2.profileImage);
+        setUsername(mockData2.username);
+        setEmail(mockData2.email);
+        setAuthProvider(mockData2.authProvider);
         initialData.current = {
-          profileImage: mockData.profileImage,
-          username: mockData.username,
-          password: mockData.password,
+          profileImage: mockData2.profileImage,
+          username: mockData2.username,
+          password: mockData2.password,
         };
       } catch (err) {
         console.error(err);
@@ -267,43 +277,49 @@ const EditProfilePage = () => {
             </div>
 
             {/* 비밀번호 변경 */}
-            <div className="space-y-2">
-              <label className="text-sm text-black font-medium">비밀번호</label>
-              {pwStep === 0 && (
-                <UpdateButton section="pwd" text="비밀번호 변경하기" onClick={() => setPwStep(1)} />
-              )}
-              {pwStep === 1 && (
-                <div className="space-y-2">
-                  <Input
-                    type="password"
-                    placeholder="현재 비밀번호"
-                    value={currentPw}
-                    onChange={e => setCurrentPw(e.target.value)}
-                    error={
-                      isValidPassword(currentPw)
-                        ? ''
-                        : '영문, 숫자, 특수문자를 포함해 8자 이상이어야 합니다.'
-                    }
+            {authProvider === 'local' && (
+              <div className="space-y-2">
+                <label className="text-sm text-black font-medium">비밀번호</label>
+                {pwStep === 0 && (
+                  <UpdateButton
+                    section="pwd"
+                    text="비밀번호 변경하기"
+                    onClick={() => setPwStep(1)}
                   />
-                  <UpdateButton section="pwd" text="확인" onClick={verifyCurrentPassword} />
-                </div>
-              )}
-              {pwStep === 2 && (
-                <div className="space-y-2">
-                  <Input
-                    type="password"
-                    placeholder="새 비밀번호"
-                    value={newPw}
-                    onChange={e => setNewPw(e.target.value)}
-                    error={
-                      isValidPassword(newPw)
-                        ? ''
-                        : '영문, 숫자, 특수문자를 포함해 8자 이상이어야 합니다.'
-                    }
-                  />
-                </div>
-              )}
-            </div>
+                )}
+                {pwStep === 1 && (
+                  <div className="space-y-2">
+                    <Input
+                      type="password"
+                      placeholder="현재 비밀번호"
+                      value={currentPw}
+                      onChange={e => setCurrentPw(e.target.value)}
+                      error={
+                        isValidPassword(currentPw)
+                          ? ''
+                          : '영문, 숫자, 특수문자를 포함해 8자 이상이어야 합니다.'
+                      }
+                    />
+                    <UpdateButton section="pwd" text="확인" onClick={verifyCurrentPassword} />
+                  </div>
+                )}
+                {pwStep === 2 && (
+                  <div className="space-y-2">
+                    <Input
+                      type="password"
+                      placeholder="새 비밀번호"
+                      value={newPw}
+                      onChange={e => setNewPw(e.target.value)}
+                      error={
+                        isValidPassword(newPw)
+                          ? ''
+                          : '영문, 숫자, 특수문자를 포함해 8자 이상이어야 합니다.'
+                      }
+                    />
+                  </div>
+                )}
+              </div>
+            )}
           </section>
 
           {/* 로그아웃 & 회원탈퇴 */}
