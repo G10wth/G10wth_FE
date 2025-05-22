@@ -16,6 +16,9 @@ export default function MyPage() {
     email: '',
     profileImage: '',
   });
+  const googleForm =
+    'https://docs.google.com/forms/d/e/1FAIpQLSfKCkdj7QqXlpiqOHdAixSz8ytYXSaq1bpQTSFWqcvXicGf4w/viewform?usp=header';
+
   // useRequireAuth();
   useEffect(() => {
     // 사용자 정보 API 호출
@@ -60,7 +63,7 @@ export default function MyPage() {
         <div className="w-full space-y-2 gap-2 flex flex-col">
           <MyPageButton text="나의 리뷰" onClick={() => navigate('/my-review')} />
           <MyPageButton text="내 정보 수정" onClick={() => navigate('/edit-profile')} />
-          <MyPageButton text="고객센터" onClick={() => navigate('/contact')} />
+          <MyPageButton text="고객센터" onClick={() => window.open(googleForm, '_blank')} />
           <MyPageButton text="로그아웃" onClick={logout} />
         </div>
       </div>
