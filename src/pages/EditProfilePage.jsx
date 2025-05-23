@@ -210,7 +210,7 @@ const EditProfilePage = () => {
   return (
     <div>
       <TopBar title="내 정보 수정" />
-      <div className="fixed max-w-[425px] w-full h-full top-[60px] gap-6">
+      <div className="text-black fixed max-w-[425px] w-full h-full top-[60px] gap-6">
         <div className="max-w-[425px] max-h-[calc(100vh-155px)] w-full overflow-auto bg-bg space-y-4">
           <section className="w-full bg-white rounded-b-2xl shadow-[0px_3px_5px_-3px_rgba(0,0,0,0.1)] p-6 space-y-6">
             <header className="text-xl font-semibold text-gray500 py-2">기본 정보</header>
