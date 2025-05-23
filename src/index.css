@@ -37,6 +37,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'Pretendard';
+  overflow-x: hidden;
 }
 
 @layer utilities {
